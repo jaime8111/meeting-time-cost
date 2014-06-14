@@ -1,0 +1,34 @@
+Tips en http://coenraets.org/keypoint/phonegap-performance;
+
+    A simple library providing hardware accelerated page transitions for Mobile Apps:
+        https://github.com/ccoenraets/PageSlider
+
+
+    Use Native Scrolling
+
+        #scroller {
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            position: absolute;
+            top: 48px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+        }
+
+
+    event touchend instead of click
+        https://github.com/ftlabs/fastclick
+
+    Limit Shadows and Gradients
+        box-shadow
+        border-radius
+        gradients
+        text-align
+
+
+    Minimize Reflows
+        Reduce the number of DOM elements
+        Minimize access to the DOM
+        Update elements "offline" before reinserting into DOM
+        Avoid tweaking layout in JavaScript

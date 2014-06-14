@@ -1,0 +1,38 @@
+<div id="list" class="page np">
+    <div class="warningMsg" ng-if="emptyList">
+        <p>
+            Looks like you haven't created any meeting yet.
+        </p>
+        <a href="#create" class="bt bg_orange">Let's do it now!</a>
+    </div>
+    <ul class="itemsList customFont">
+        <li ng-repeat="meeting in meetings"
+            ng-class="{'favourite': meeting.favourite == 1,'selected': meeting.selected}">
+            <div class="itemListRow" ng-click='toggleListItem($index)'>
+                <div class="itemListCol">
+                    <p class="sp-before money" ng-bind-html="meeting.currentCost | customCurrency"></p>
+                    <p class="note highlight ellipsis">{{ meeting.meetDate | timeago }}</p>
+                </div>
+                <div class="itemListCol">
+                    <p class="sp-before time" ng-bind-html="meeting.meetSeconds | secondsToClock"></p>
+                    <p class="note highlight" ng-class="{warningLight: meeting.estimatedSeconds - meeting.meetSeconds < 0}" ng-bind-html="meeting.estimatedSeconds - meeting.meetSeconds | secondsToClock"></p>
+                </div>
+                <div class="itemListCol">
+                    <p class="sp-before persons">{{ meeting.attenders }}</p>
+                    <p class="note highlight sp-before moneyPerPerson" ng-bind-html="meeting.costPerHourAndAttender | customCurrency"></p>
+                </div>
+            </div>
+            <div class="itemListActions"
+                ng-swipe-left="toggleListItem()"
+                ng-swipe-right="toggleListItem()">
+                <a class="sp-before favourite" ng-click="setFavourite($index)">favourite</a>
+                <a class="sp-before restart" ng-click="updateMeeting(meeting.id,0,true)">restart</a>
+                <a class="sp-before continue" ng-click="gotoMeeting(meeting.id)">continue</a>
+                <a class="sp-before delete" ng-click="deleteMeeting($index, meeting.id)">delete</a>
+            </div>
+        </li>
+    </ul>
+    <div class="ac">
+        <a href="#create" class="bt bg_orange">create a new meeting</a>
+    </div>
+</div>

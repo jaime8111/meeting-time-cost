@@ -1,0 +1,55 @@
+<div class="page">
+    <div id="circlesWrap" ng-if="loaded">
+
+        <div id="timer" class="customFont">
+            <div id="mainTimer" class="timer circlePanel bigCircle" ng-class="{extratime: extratime}">
+                <p class="cost mainData">
+                    <label class="db highlight">cost so far</label>
+                    <strong class="db" ng-bind-html="currentCost | customCurrency"></strong>
+                </p>
+                <p class="percent">
+                    <strong class="db" ng-bind-html="timer | secondsToClock"></strong>
+                    <label class="icon sp time indent highlight">time</label>
+                </p>
+                <div class="slice" ng-class="{gt50: timerPerc>50}">
+                    <div class="pie" style="-webkit-transform: rotate({{ timerRotation }}deg);"></div>
+                    <div ng-if="timerPerc > 50" class="pie fill" style="-webkit-transform: rotate({{ timerRotation }}deg);"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="circlePanel smallCircle customFont fr cb">
+            <p class="cost mainData">
+                <strong>{{ detailMeeting.attenders }}</strong>
+                <label class="icon sp persons indent highlight">persons</label>
+            </p>
+            <p class="percent">
+                <strong class="db">
+                    {{ costPerHourAndAttender | number:0 }}
+                    <label class="icon sp indent moneyPerPerson highlight">costPerHourAndPerson</label>
+                </strong>
+
+            </p>
+        </div>
+
+        <div class="circlePanel mediumCircle customFont fr cb">
+            <p class="cost mainData">
+                <label class="icon sp-before timeSmall highlight">estimated</label>
+                <strong class="db" ng-bind-html="detailMeeting.estimatedSeconds | secondsToClock"></strong>
+            </p>
+            <p class="percent">
+                <strong class="db" ng-bind-html="estimatedCost | number:0"></strong>
+                <label class="icon sp-before money highlight">/ hour</label>
+            </p>
+        </div>
+
+        <div class="cb twoButtons clearfix">
+            <a ng-click="startTimer()" ng-if="!disabledStart && timer == 0" class="bt bg_green sp-before bt_icon play">start</a>
+            <a ng-click="startTimer()" ng-if="!disabledStart && timer > 0" class="bt bg_green sp-before bt_icon play">resume</a>
+            <a ng-click="pauseTimer()" ng-if="disabledStart" class="bt bg_orange sp-before bt_icon pause">pause</a>
+            <a ng-click="stopTimer()" class="bt bg_red sp-before bt_icon stop">stop</a>
+        </div>
+
+
+    </div>
+</div>

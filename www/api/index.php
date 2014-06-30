@@ -38,9 +38,12 @@ $app->get('/get/:userId',  'getMeetings');
 $app->get('/get',  function () {
     echo "We need a user ID";
 });
-$app->delete('/event/:userId/:meetingId',  'deleteMeeting');
-$app->put('/event/:userId/:meetingId/:meetSeconds',  'updateMeeting');
-$app->put('/event/favourite/:userId/:meetingId/:favourite',  'updateFavourite');
+//$app->delete('/event/:userId/:meetingId',  'deleteMeeting');
+    $app->get('/event/delete/:userId/:meetingId',  'deleteMeeting');
+//$app->put('/event/:userId/:meetingId/:meetSeconds',  'updateMeeting');
+    $app->get('/event/update/:userId/:meetingId/:meetSeconds',  'updateMeeting');
+//$app->put('/event/favourite/:userId/:meetingId/:favourite',  'updateFavourite');
+    $app->get('/event/favourite/:userId/:meetingId/:favourite',  'updateFavourite');
 
 
 $app->get('/', function () {
@@ -74,6 +77,7 @@ function getMeetings($userId) {
 
 function updateMeeting($userId, $meetingId, $meetSeconds) {
     //sleep(6);
+
     $currentMoment = date("Y")."-".date("m")."-".date("d")." ".date("H").":".date("i").":".date("s");
     $sql = "UPDATE meetings SET meetSeconds=:meetSeconds, meetDate=:currentMoment  WHERE owner=:userId and id=:meetingId";
     try {
@@ -120,7 +124,7 @@ function getMeeting($userId, $meetingId) {
 
         $db = getConnection();
         $sql = "SELECT * FROM rateperiods";
-        $stmt =m $db->query($sql);
+        $stmt = $db->query($sql);
         $periods = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         if( count($allRecords) > 0 ) {
@@ -189,7 +193,7 @@ function saveMeeting() {
                 $sql->bindValue(':meetSeconds', $postObject->meetSeconds);
             $sql->execute();
 
-            echo '{"success":{"code": "newMeetingSaved", "text": "Meeting was successful saved", "lastInsertId": "'.$db->lastInsertId().'"}}';
+            echo '{"success":{"code": "newMeetingSaved", "text": "Meeting was successful saved"}}';
         }
 
         $db = null;
@@ -201,15 +205,15 @@ function saveMeeting() {
 
 function getConnection() {
 
-    $dbhost="localhost";
+    $myDBhost="localhost";
     $dbuser="meetcostuser";
 
-    // $dbhost = "95.85.47.138";
-    // $dbuser="meetcostuser";
+    //$myDBhost = "95.85.47.138";
+    //$dbuser = "meetcostuser";
 
-    $dbpass="Bf8xcFzLTMxympHH";
-    $dbname="meetcost";
-    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+    $dbpass = "Bf8xcFzLTMxympHH";
+    $dbname = "meetcost";
+    $dbh = new PDO("mysql:host=$myDBhost;dbname=$dbname", $dbuser, $dbpass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $dbh;
 }

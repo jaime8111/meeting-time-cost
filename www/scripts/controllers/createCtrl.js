@@ -3,17 +3,21 @@
 angular.module('meetcost')
     .controller('CreateCtrl', function ($scope, $http, $location, $rootScope, $window) {
 
+        // set page info
         $rootScope.pageInfo = {
             'id': 'createPage',
             'class': 'createPage',
             'title': 'Create a new meeting'
         };
 
+        var d = new Date();
+
         $scope.meetData = {};
         $scope.meetData.owner = setUserID();
         $scope.meetData.meetSeconds = 0;
         $scope.meetData.ratePeriod = 1;
-        $scope.meetData.id = new Date().getTime(); // current timestamp
+        $scope.meetData.id = d.getTime(); // current timestamp
+        $scope.meetData.meetDate = d.getTime();
 
         $scope.calculator = {
             'title': 'create a meeting',
@@ -43,9 +47,15 @@ angular.module('meetcost')
             if ( key != 'del' ) {
                 $scope.calculatorVal = parseInt($scope.calculatorVal + '' + key);
             } else {
-                $scope.calculatorVal = parseInt($scope.calculatorVal / 10 );
+                var str = $scope.calculatorVal+"";
+                $scope.calculatorVal = parseInt(str.substring(0, str.length -1));
             }
         };
+
+        $scope.checkCalulatorValue = function () {
+            // check that user only insert numbers in calculator input
+            $scope.calculatorVal = parseInt($scope.calculatorVal);
+        }
 
         $scope.periodSelector = function (period) {
             $scope.meetData.ratePeriod = period;
@@ -53,6 +63,15 @@ angular.module('meetcost')
 
         $scope.nextStep = function (step) {
             if ( $scope.calculatorVal > 0 ) {
+
+                $scope.calculator.isMoving = true;
+                $scope.calculator.isMovingReverse = false;
+                setTimeout(function(){
+                    $scope.$apply(function () {
+                        $scope.calculator.isMoving = false;
+                    });
+                }, 500);
+
                 $scope.calculator.error = '';
                 if ( step == 1 ) {
                     // attenders
@@ -81,6 +100,14 @@ angular.module('meetcost')
 
         $scope.prevStep = function (step) {
 
+            $scope.calculator.isMoving = true;
+            $scope.calculator.isMovingReverse = true;
+            setTimeout(function(){
+                $scope.$apply(function () {
+                    $scope.calculator.isMoving = false;
+                });
+            }, 500);
+
             if ( step == 1 ) {
                 // attenders
                 $scope.calculatorVal = $scope.meetData.attenders;
@@ -107,11 +134,21 @@ angular.module('meetcost')
             $scope.meetData.status = 1;
             $rootScope.loading = true; // set preloading icon status
 
-            // add new meeting to existing lists of meetings
-            $scope.meetings = JSON.parse(localStorage.meetings);
-            $scope.meetings.push($scope.meetData);
-            localStorage.meetings = JSON.stringify($scope.meetings);
 
+            // add new meeting to existing lists of meetings
+            if (localStorage.meetings && localStorage.meetings != "undefined") {
+                // get user meetings from localstorage
+                $scope.meetings = JSON.parse(localStorage.meetings);
+
+                // insert new meeting
+                $scope.meetings.push($scope.meetData);
+
+                // update localstorage with new meeting
+                localStorage.meetings = JSON.stringify($scope.meetings);
+            }
+
+            /*
+            // save new meeting on MySQL
             $http.post('api/save', $scope.meetData)
                 .success(function(data) {
                     // this callback will be called asynchronously
@@ -130,6 +167,7 @@ angular.module('meetcost')
                   // or server returns response with an error status.
                   $rootScope.loading = false; // set preloading icon status
             });
+            */
             $location.path('/meeting/'+$scope.meetData.owner+'/'+$scope.meetData.id);
 
 

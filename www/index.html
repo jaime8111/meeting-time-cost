@@ -45,12 +45,12 @@
     <link rel="stylesheet" href="css/ie7.css">
     <![endif]-->
 </head>
-<body id="{{ pageInfo.id }}" class="{{ pageInfo.class }}">
+<body id="{{ pageInfo.id }}" class="{{ pageInfo.class }}" ng-controller='MainCtrl'>
     <div id="app" class="app">
 
-        <div id="fixedBar">
+        <div id="fixedBar" ng-click="toggleBar()" ng-class="{opened: toggleBarVisibility}">
             <div class="content">
-                <a href="#" id="toggleFixedBar" title="Toggle navigation bar" class="sp-before sp-after bg_blue hide-on-desktops hide-on-tablets">toggle</a>
+                <a id="toggleFixedBar" title="Toggle navigation bar" class="sp-before sp-after bg_blue hide-on-desktops hide-on-tablets">toggle</a>
 
                 <div id="mainMenuLogo">
                     <a ng-href="#index" class="logo"></a>
@@ -86,6 +86,7 @@
 <script type="text/javascript" src="scripts/vendor/angular/angular-sanitize.min.js"></script>
 <script type="text/javascript" src="scripts/vendor/angular/angular-touch.min.js"></script>
 <script type="text/javascript" src="scripts/vendor/angular/angular-route.min.js"></script>
+<script type="text/javascript" src="scripts/vendor/angular/angular-animate.min.js"></script>
 
 <script type="text/javascript" src="scripts/route.js"></script>
     <script src="scripts/controllers/mainCtrl.js"></script>

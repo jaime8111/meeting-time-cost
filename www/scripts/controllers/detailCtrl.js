@@ -1,8 +1,5 @@
 'use strict';
 
-//var apiURL = 'http://95.85.47.138/vissit.com/precio-electricidad/';
-var apiURL = '';
-
 angular.module('meetcost')
     .controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, $location, meetServices) {
         setUserID();
@@ -26,7 +23,7 @@ angular.module('meetcost')
         function stopTimer() {
             $scope.disabledStart = false;
             clearInterval(timer);
-            meetServices.updateMeeting($scope.detailMeeting.id,$scope.timer,false);
+            meetServices.updateMeeting($scope.detailMeeting.id,$scope.timer,false, $scope);
 
         }
 
@@ -71,8 +68,8 @@ angular.module('meetcost')
             setTimer();
         });
 
-        $scope.updateMeeting = function(id, seconds, refresh) {
-            meetServices.updateMeeting(id, seconds, refresh);
+        $scope.updateMeeting = function(id, seconds, refresh, $scope) {
+            meetServices.updateMeeting(id, seconds, refresh, $scope);
         }
 
         $scope.drawDetailMeeting = function(meeting) {
@@ -86,6 +83,7 @@ angular.module('meetcost')
             meetServices.setMeetingCosts($scope, $scope.detailMeeting, costRate);
 
             $scope.estimatedCost = $scope.costPerSecond * $scope.detailMeeting.estimatedSeconds;
+            $scope.estimatedCostByHour = $scope.costPerSecond * 60 * 60;
 
             $scope.timerPerc = $scope.timer * 100 / $scope.detailMeeting.estimatedSeconds;
             $scope.timerRotation = 360/100*$scope.timerPerc;
@@ -94,18 +92,27 @@ angular.module('meetcost')
         }
 
         // init load with data saved on localstorage
-        var storagedMeetings = JSON.parse(localStorage.meetings);
-        for ( var i in storagedMeetings ) {
-            if ( storagedMeetings[i].id == $routeParams.id && storagedMeetings[i].owner === localStorage.owner ) {
-                $scope.drawDetailMeeting(storagedMeetings[i]);
+        if (localStorage.meetings && localStorage.meetings != "undefined") {
+            var storagedMeetings = JSON.parse(localStorage.meetings);
+            for ( var i in storagedMeetings ) {
+                if ( storagedMeetings[i].id == $routeParams.id && storagedMeetings[i].owner === localStorage.owner ) {
+                    $scope.drawDetailMeeting(storagedMeetings[i]);
+                }
             }
         }
 
         $rootScope.loading = true; // set preloading icon status
-        $http({method: 'GET', url: apiURL + 'api/get/'+$routeParams.owner+'/'+$routeParams.id}).
+        $http({
+                method: 'GET',
+                url: apiURL + 'api/get/'+$routeParams.owner+'/'+$routeParams.id,
+                cache: false
+            }).
             success(function(data) {
-                $scope.detailMeeting = data.meetings;
-                $scope.drawDetailMeeting(data.meetings[0]);
+                if (data.meeting && data.meetings[0]) {
+                    $scope.detailMeeting = data.meetings;
+                    $scope.drawDetailMeeting(data.meetings[0]);
+                }
+
 
                 $rootScope.loading = false; // set preloading icon status
             }).
@@ -166,7 +173,7 @@ angular.module('meetcost')
         //local: compared to what time? default: now
         //raw: wheter you want in a format of "5 minutes ago", or "5 minutes"
         return function (time, local, raw) {
-            if (!time) return 'never';
+            if (!time) return '';
 
             if (!local) {
                 (local = Date.now());

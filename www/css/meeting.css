@@ -513,6 +513,19 @@ html, body {
 
             position: relative;
         }
+            .itemsList li.ng-enter,
+                .itemsList li.ng-leave {
+                    -webkit-transition:0.5s linear opacity;
+                        transition:0.5s linear opacity;
+            }
+                .itemsList li.ng-leave,
+                    .itemsList li.ng-enter-active {
+                        opacity: 1;
+                }
+                .itemsList li.ng-enter,
+                    .itemsList li.ng-leave-active {
+                        opacity:0;
+                }
             .itemListRow {
                 display: table;
                 /*table-layout:fixed;*/
@@ -789,6 +802,15 @@ html, body {
             left: 50%;
             margin-left: -.4em;
         }
+        .circlePanel .icon.moneySmall:before {
+            background-position: -13.3em -0.4em;
+            background-size: 16em;
+            width: 1.1em;
+            height: 1.1em;
+            top: -1.1em;
+            left: 50%;
+            margin-left: -.4em;
+        }
         .circlePanel .money {
             padding-left: .75em;
         }
@@ -923,6 +945,7 @@ html, body {
 
 /*= CALCULATOR */
 .calculator {}
+
     .calculator label {
         display: block;
         text-align: center;
@@ -987,6 +1010,54 @@ html, body {
         .periodSelector .bt + .bt {
             border-left: solid 1px #000;
         }
+
+
+.calculator.moving {
+    animation:moveCalculator .5s;
+    -webkit-animation:moveCalculator .5s;
+}
+.calculator.moving.reverse {
+    animation-direction: reverse;
+    -webkit-animation-direction: reverse
+}
+
+@keyframes moveCalculator{
+  0% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  50%{
+    transform: translate(-120%,0);
+    opacity: 0;
+  }
+  51%{
+    transform: translate(120%,0);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes moveCalculator {
+    0% {
+      -webkit-transform: translate(0,0);
+      opacity: 1;
+    }
+    50%{
+      -webkit-transform: translate(-120%,0);
+      opacity: 0;
+    }
+    51%{
+      -webkit-transform: translate(120%,0);
+      opacity: 0;
+    }
+    100%{
+      -webkit-transform: translate(0,0);
+      opacity: 1;
+    }
+}
+
 /* end of calculator */
 
 

@@ -1,0 +1,33 @@
+{
+  "owner": "1402497086984-0384",
+  "meetings": [
+      {
+        "id": 1,
+        "owner": "1402497086984-0384",
+        "meetDate": "2014-06-11 16:32:04",
+        "attenders": 2,
+        "averageRate": 25,
+        "ratePeriod": [1, 2, 3],
+        "estimatedSeconds": 60,
+        "favourite": 1
+      }
+  ],
+  "ratePeriod": [
+    {
+      "id": 1,
+      "type": "hourly",
+      "rate": 1
+    },
+    {
+      "id": 2,
+      "type": "monthly",
+      "rate": 160
+    },
+    {
+      "id": 3,
+      "type": "yearly",
+      "rate": 1680
+    }
+  ]
+}
+

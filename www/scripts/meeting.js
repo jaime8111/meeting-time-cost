@@ -1,6 +1,7 @@
 $(function () {
     "use strict";
 
+    /*
     var toggleLink = $("#toggleFixedBar"),
         fixedBar = $("#fixedBar");
 
@@ -8,6 +9,7 @@ $(function () {
         e.preventDefault();
         fixedBar.toggleClass("opened");
     });
+    */
 });
 
 /*window.onload = function() {

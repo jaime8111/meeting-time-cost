@@ -33,12 +33,16 @@
         </div>
 
         <div class="circlePanel mediumCircle customFont fr cb">
-            <p class="cost mainData">
+            <!--<p class="cost mainData">
                 <label class="icon sp-before timeSmall highlight">estimated</label>
                 <strong class="db" ng-bind-html="detailMeeting.estimatedSeconds | secondsToClock"></strong>
+            </p>-->
+            <p class="cost mainData">
+                <label class="icon sp-before moneySmall highlight">estimated</label>
+                <strong class="db" ng-bind-html="estimatedCost | number:0"></strong>
             </p>
             <p class="percent">
-                <strong class="db" ng-bind-html="estimatedCost | number:0"></strong>
+                <strong class="db" ng-bind-html="estimatedCostByHour | number:0"></strong>
                 <label class="icon sp-before money highlight">/ hour</label>
             </p>
         </div>

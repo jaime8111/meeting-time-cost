@@ -387,28 +387,71 @@ html, body {
             .bt.bg_blue:hover { background-color: #33B5E5; }
 
 
-    .bt_icon {
-        text-align: left;
-        padding-left: 55px;
-    }
-        .bt_icon:before { top: 8px; left:8px; }
-        .bt_icon.play:before { background-position: -227px -134px; }
-        .bt_icon.pause:before { background-position: -113px -134px; }
-        .bt_icon.stop:before { background-position: -169px -134px; }
 
-    .twoButtons .bt {
-        width: 42%;
-        margin: 0 3% 0 5%;
-        float: left;
-    }
-        .twoButtons .bt:last-child {
-            margin: 0 5% 0 3%;
-            float: right;
+
+        .bt_ball.play {
+            background-color: rgba(153,204,0,.2);
+        }
+        .bt_ball.pause {
+            background-color: rgba(255,136,0,.2);
+        }
+        .bt_ball.stop {
+            background-color: rgba(255,68,68,.2);
+        }
+        .bt_ball.play em {
+            background-position: -229px -139px;
+        }
+        .bt_ball.pause em {
+            background-position: -118px -139px;
+        }
+        .bt_ball.stop em {
+            background-position: -174px -138px;
         }
 
-    @media (max-width: 360px) {
-        .bt_icon { padding-left: .5em; }
-        .bt_icon:before { display: none; text-align: center;}
+    .bt_ball {
+        border-radius: 50%;
+        text-indent: -9000px;
+        border:solid 2px #fff;
+        padding: 0;
+        width: 2em;
+        height: 2em;
+        font-size: 33px;
+        padding: 15px;
+    }
+        .bt_ball em {
+            display: block;
+            width: 30px;
+            height: 30px;
+        }
+    #circleButtonsWrap {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+        #circleButtonsWrap .bt_ball {
+            position: absolute;
+            left: 73%;
+            top: 0em;
+        }
+            #circleButtonsWrap .bt_ball:nth-child(2n) {
+                top: 2.1em;
+                left: 81%;
+            }
+    @media (max-width: 479px) {
+        .bt_ball {
+            font-size: 25px;
+            padding: 8px;
+        }
+
+    }
+    @media (max-width: 379px) {
+        #circleButtonsWrap .bt_ball {
+            left: 63%;
+        }
+            #circleButtonsWrap .bt_ball:nth-child(2n) {
+                left: 70%;
+            }
     }
 
     .bt.disabled, .bt.disabled:hover {

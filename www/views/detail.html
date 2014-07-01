@@ -47,11 +47,11 @@
             </p>
         </div>
 
-        <div class="cb twoButtons clearfix">
-            <a ng-click="startTimer()" ng-if="!disabledStart && timer == 0" class="bt bg_green sp-before bt_icon play">start</a>
-            <a ng-click="startTimer()" ng-if="!disabledStart && timer > 0" class="bt bg_green sp-before bt_icon play">resume</a>
-            <a ng-click="pauseTimer()" ng-if="disabledStart" class="bt bg_orange sp-before bt_icon pause">pause</a>
-            <a ng-click="stopTimer()" class="bt bg_red sp-before bt_icon stop">stop</a>
+        <div id="circleButtonsWrap" class="cb clearfix">
+        <a ng-click="stopTimer()" class="bt bt_ball bg_red bt_icon stop"><em class="sp">stop</em></a>
+            <a ng-click="startTimer()" ng-if="!disabledStart && timer == 0" class="bt bt_ball bg_green bt_icon play"><em class="sp">start</em></a>
+            <a ng-click="startTimer()" ng-if="!disabledStart && timer > 0" class="bt bt_ball bg_green bt_icon play"><em class="sp">resume</em></a>
+            <a ng-click="pauseTimer()" ng-if="disabledStart" class="bt bt_ball bg_orange bt_icon pause"><em class="sp">pause</em></a>
         </div>
 
 

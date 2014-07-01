@@ -11,7 +11,6 @@ angular.module('meetcost')
         };
 
         $scope.setMeetingsData = function(meetings) {
-            console.log(meetings);
             for ( var i in meetings ) {
                 var ratePeriods = JSON.parse(meetServices.getRatePeriods()),
                     costRate = meetServices.getCostRate(ratePeriods, meetings[i].ratePeriod);
@@ -60,31 +59,52 @@ angular.module('meetcost')
 
 
         // select item to show item actions
-        $scope.toggleListItem = function(index) {
+        $scope.toggleListItem = function(id) {
             for ( var i in $scope.meetings ) {
-                $scope.meetings[i].selected = false;
+                if ( id && id == $scope.meetings[i].id ) {
+                    $scope.meetings[i].selected = true;
+                } else {
+                    $scope.meetings[i].selected = false;
+                }
             }
-            if (index >= 0) {
+            /*
+            if (id >= 0) {
                 $scope.meetings[index].selected = true;
             }
-            meetServices.updateMeetingsLocalStorage($scope.meetings); // save meetings on localstorage
-        }
-
-        $scope.setFavourite = function(index) {
-            if($scope.meetings[index].favourite > 0) {
-                $scope.meetings[index].favourite = 0;
-            } else {
-                $scope.meetings[index].favourite = 1;
-            }
-            $scope.meetings[index].selected = false;
-
-            meetServices.updateFavourite($scope.meetings[index].id, $scope.meetings[index].favourite, $scope);
+            */
             //meetServices.updateMeetingsLocalStorage($scope.meetings); // save meetings on localstorage
         }
 
-        $scope.deleteMeeting = function(index, id) {
-            $scope.meetings[index].selected = false;
-            $scope.meetings.splice(index, 1);
+        $scope.setFavourite = function(id) {
+            var fav = 0;
+            for ( var i in $scope.meetings ) {
+                if ( $scope.meetings[i].id == id ) {
+                    if($scope.meetings[i].favourite > 0) {
+                        $scope.meetings[i].favourite = 0;
+                    } else {
+                        $scope.meetings[i].favourite = 1;
+                        fav = 1;
+                    }
+                }
+
+                $scope.meetings[i].selected = false;
+            }
+
+            meetServices.updateFavourite(id, fav, $scope);
+            //meetServices.updateMeetingsLocalStorage($scope.meetings); // save meetings on localstorage
+        }
+
+        $scope.deleteMeeting = function(id) {
+
+            for ( var i in $scope.meetings ) {
+                if ( $scope.meetings[i].id == id ) {
+                    var index = i;
+                }
+            }
+            if ( index ) {
+                $scope.meetings.splice(index, 1);
+            }
+
             meetServices.updateMeetingsLocalStorage($scope.meetings); // save meetings on localstorage
             /*
             //$http({method: 'DELETE', url: apiURL + 'api/event/'+localStorage.owner+'/'+id}).

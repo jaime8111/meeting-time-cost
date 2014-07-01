@@ -6,9 +6,9 @@
         <a href="#create" class="bt bg_orange">Let's do it now!</a>
     </div>
     <ul class="itemsList customFont">
-        <li ng-repeat="meeting in meetings"
+        <li ng-repeat="meeting in meetings | orderBy:'meetDate':true"
             ng-class="{'favourite': meeting.favourite == 1,'selected': meeting.selected}">
-            <div class="itemListRow" ng-click='toggleListItem($index)'>
+            <div class="itemListRow" ng-click='toggleListItem(meeting.id)'>
                 <div class="itemListCol">
                     <p class="sp-before money" ng-bind-html="meeting.currentCost | customCurrency"></p>
                     <p class="note highlight ellipsis">{{ meeting.meetDate | timeago }}</p>
@@ -25,10 +25,10 @@
             <div class="itemListActions"
                 ng-swipe-left="toggleListItem()"
                 ng-swipe-right="toggleListItem()">
-                <a class="sp-before favourite" ng-click="setFavourite($index)">favourite</a>
+                <a class="sp-before favourite" ng-click="setFavourite(meeting.id)">favourite</a>
                 <a class="sp-before restart" ng-click="updateMeeting(meeting.id,0,true)">restart</a>
                 <a class="sp-before continue" ng-click="gotoMeeting(meeting.id)">continue</a>
-                <a class="sp-before delete" ng-click="deleteMeeting($index, meeting.id)">delete</a>
+                <a class="sp-before delete" ng-click="deleteMeeting(meeting.id)">delete</a>
             </div>
         </li>
     </ul>

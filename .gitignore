@@ -1,0 +1,185 @@
+edit/background photos/1057597_31579937.jpg
+edit/background photos/1065245_79106935.jpg
+edit/background photos/1125737_11951108.jpg
+edit/background photos/1125739_38839523.jpg
+edit/background photos/1152044_47663778.jpg
+edit/background photos/1419673_31471799.jpg
+edit/background photos/538169_17914461.jpg
+edit/background photos/732127_19272091.jpg
+edit/background photos/807952_78951035.jpg
+edit/background photos/813592_44129209.jpg
+edit/background photos/813593_64845958.jpg
+edit/background photos/860275_58506555.jpg
+edit/background photos/metronome_side.jpg
+edit/background photos/shutterstock_110240975.jpg
+edit/background photos/shutterstock_110630648.jpg
+edit/background photos/shutterstock_111171971.jpg
+edit/background photos/shutterstock_120456253.jpg
+edit/background photos/shutterstock_123179971.jpg
+edit/background photos/shutterstock_131659676.jpg
+edit/background photos/shutterstock_134267003.jpg
+edit/background photos/shutterstock_162650075.jpg
+edit/background photos/shutterstock_172089218.jpg
+edit/background photos/shutterstock_83766358.jpg
+edit/paper notes/paper_wireframe_first-mobile-app-b.jpg
+edit/paper notes/paper_wireframe_first-mobile-app.jpg
+edit/previous-app-designs/Meeting-Cost Clock.webp
+edit/previous-app-designs/bleedingMeeting.webp
+edit/previous-app-designs/costThatMeeting.webp
+edit/previous-app-designs/costTimer.webp
+edit/previous-app-designs/meetingCostCalculator.webp
+edit/previous-app-designs/meetingCostPro.webp
+edit/previous-app-designs/meetingCostTimer.webp
+edit/previous-app-designs/meetingCostWatcher.webp
+edit/previous-app-designs/meetingCosts.webp
+edit/previous-app-designs/meetingMinder.webp
+edit/previous-app-designs/mymeetingticker.webp
+edit/previous-app-designs/trulyMeetingCosts.webp
+edit/referencias diseño/data.png
+edit/referencias diseño/data2.png
+edit/referencias diseño/data3.png
+edit/referencias diseño/data4.png
+edit/referencias diseño/data5.png
+edit/referencias diseño/data6.png
+edit/referencias diseño/desenfoque foto fondo.png
+edit/referencias diseño/first screen.png
+edit/referencias diseño/logo.png
+edit/referencias diseño/menu lateral.png
+node_modules/mongodb/.travis.yml
+node_modules/mongodb/CONTRIBUTING.md
+node_modules/mongodb/LICENSE
+node_modules/mongodb/Makefile
+node_modules/mongodb/Readme.md
+node_modules/mongodb/index.js
+node_modules/mongodb/lib/mongodb/admin.js
+node_modules/mongodb/lib/mongodb/aggregation_cursor.js
+node_modules/mongodb/lib/mongodb/auth/mongodb_cr.js
+node_modules/mongodb/lib/mongodb/auth/mongodb_gssapi.js
+node_modules/mongodb/lib/mongodb/auth/mongodb_plain.js
+node_modules/mongodb/lib/mongodb/auth/mongodb_sspi.js
+node_modules/mongodb/lib/mongodb/auth/mongodb_x509.js
+node_modules/mongodb/lib/mongodb/collection.js
+node_modules/mongodb/lib/mongodb/collection/aggregation.js
+node_modules/mongodb/lib/mongodb/collection/commands.js
+node_modules/mongodb/lib/mongodb/collection/core.js
+node_modules/mongodb/lib/mongodb/collection/geo.js
+node_modules/mongodb/lib/mongodb/collection/index.js
+node_modules/mongodb/lib/mongodb/collection/query.js
+node_modules/mongodb/lib/mongodb/collection/shared.js
+node_modules/mongodb/lib/mongodb/command_cursor.js
+node_modules/mongodb/lib/mongodb/commands/base_command.js
+node_modules/mongodb/lib/mongodb/commands/db_command.js
+node_modules/mongodb/lib/mongodb/commands/delete_command.js
+node_modules/mongodb/lib/mongodb/commands/get_more_command.js
+node_modules/mongodb/lib/mongodb/commands/insert_command.js
+node_modules/mongodb/lib/mongodb/commands/kill_cursor_command.js
+node_modules/mongodb/lib/mongodb/commands/query_command.js
+node_modules/mongodb/lib/mongodb/commands/update_command.js
+node_modules/mongodb/lib/mongodb/connection/base.js
+node_modules/mongodb/lib/mongodb/connection/connection.js
+node_modules/mongodb/lib/mongodb/connection/connection_pool.js
+node_modules/mongodb/lib/mongodb/connection/connection_utils.js
+node_modules/mongodb/lib/mongodb/connection/mongos.js
+node_modules/mongodb/lib/mongodb/connection/read_preference.js
+node_modules/mongodb/lib/mongodb/connection/repl_set/ha.js
+node_modules/mongodb/lib/mongodb/connection/repl_set/options.js
+node_modules/mongodb/lib/mongodb/connection/repl_set/repl_set.js
+node_modules/mongodb/lib/mongodb/connection/repl_set/repl_set_state.js
+node_modules/mongodb/lib/mongodb/connection/repl_set/strategies/ping_strategy.js
+node_modules/mongodb/lib/mongodb/connection/repl_set/strategies/statistics_strategy.js
+node_modules/mongodb/lib/mongodb/connection/server.js
+node_modules/mongodb/lib/mongodb/connection/server_capabilities.js
+node_modules/mongodb/lib/mongodb/connection/url_parser.js
+node_modules/mongodb/lib/mongodb/cursor.js
+node_modules/mongodb/lib/mongodb/cursorstream.js
+node_modules/mongodb/lib/mongodb/db.js
+node_modules/mongodb/lib/mongodb/gridfs/chunk.js
+node_modules/mongodb/lib/mongodb/gridfs/grid.js
+node_modules/mongodb/lib/mongodb/gridfs/gridstore.js
+node_modules/mongodb/lib/mongodb/gridfs/readstream.js
+node_modules/mongodb/lib/mongodb/index.js
+node_modules/mongodb/lib/mongodb/mongo_client.js
+node_modules/mongodb/lib/mongodb/responses/mongo_reply.js
+node_modules/mongodb/lib/mongodb/scope.js
+node_modules/mongodb/lib/mongodb/utils.js
+node_modules/mongodb/node_modules/bson/.travis.yml
+node_modules/mongodb/node_modules/bson/Makefile
+node_modules/mongodb/node_modules/bson/README.md
+node_modules/mongodb/node_modules/bson/binding.gyp
+node_modules/mongodb/node_modules/bson/browser_build/bson.js
+node_modules/mongodb/node_modules/bson/browser_build/package.json
+node_modules/mongodb/node_modules/bson/build_browser.js
+node_modules/mongodb/node_modules/bson/ext/Makefile
+node_modules/mongodb/node_modules/bson/ext/bson.cc
+node_modules/mongodb/node_modules/bson/ext/bson.h
+node_modules/mongodb/node_modules/bson/ext/index.js
+node_modules/mongodb/node_modules/bson/ext/nan.h
+node_modules/mongodb/node_modules/bson/ext/win32/ia32/bson.node
+node_modules/mongodb/node_modules/bson/ext/win32/x64/bson.node
+node_modules/mongodb/node_modules/bson/ext/wscript
+node_modules/mongodb/node_modules/bson/lib/bson/binary.js
+node_modules/mongodb/node_modules/bson/lib/bson/binary_parser.js
+node_modules/mongodb/node_modules/bson/lib/bson/bson.js
+node_modules/mongodb/node_modules/bson/lib/bson/code.js
+node_modules/mongodb/node_modules/bson/lib/bson/db_ref.js
+node_modules/mongodb/node_modules/bson/lib/bson/double.js
+node_modules/mongodb/node_modules/bson/lib/bson/float_parser.js
+node_modules/mongodb/node_modules/bson/lib/bson/index.js
+node_modules/mongodb/node_modules/bson/lib/bson/long.js
+node_modules/mongodb/node_modules/bson/lib/bson/max_key.js
+node_modules/mongodb/node_modules/bson/lib/bson/min_key.js
+node_modules/mongodb/node_modules/bson/lib/bson/objectid.js
+node_modules/mongodb/node_modules/bson/lib/bson/symbol.js
+node_modules/mongodb/node_modules/bson/lib/bson/timestamp.js
+node_modules/mongodb/node_modules/bson/package.json
+node_modules/mongodb/node_modules/bson/tools/gleak.js
+node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/MIT.LICENSE
+node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine-html.js
+node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine.css
+node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine.js
+node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine_favicon.png
+node_modules/mongodb/node_modules/kerberos/LICENSE
+node_modules/mongodb/node_modules/kerberos/README.md
+node_modules/mongodb/node_modules/kerberos/binding.gyp
+node_modules/mongodb/node_modules/kerberos/index.js
+node_modules/mongodb/node_modules/kerberos/lib/auth_processes/mongodb.js
+node_modules/mongodb/node_modules/kerberos/lib/base64.c
+node_modules/mongodb/node_modules/kerberos/lib/base64.h
+node_modules/mongodb/node_modules/kerberos/lib/kerberos.cc
+node_modules/mongodb/node_modules/kerberos/lib/kerberos.h
+node_modules/mongodb/node_modules/kerberos/lib/kerberos.js
+node_modules/mongodb/node_modules/kerberos/lib/kerberos_context.cc
+node_modules/mongodb/node_modules/kerberos/lib/kerberos_context.h
+node_modules/mongodb/node_modules/kerberos/lib/kerberosgss.c
+node_modules/mongodb/node_modules/kerberos/lib/kerberosgss.h
+node_modules/mongodb/node_modules/kerberos/lib/sspi.js
+node_modules/mongodb/node_modules/kerberos/lib/win32/base64.c
+node_modules/mongodb/node_modules/kerberos/lib/win32/base64.h
+node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos.cc
+node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos.h
+node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos_sspi.c
+node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos_sspi.h
+node_modules/mongodb/node_modules/kerberos/lib/win32/worker.cc
+node_modules/mongodb/node_modules/kerberos/lib/win32/worker.h
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer.cc
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer.h
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer.js
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer_descriptor.cc
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer_descriptor.h
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer_descriptor.js
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_context.cc
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_context.h
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_context.js
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_credentials.cc
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_credentials.h
+node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_credentials.js
+node_modules/mongodb/node_modules/kerberos/lib/worker.cc
+node_modules/mongodb/node_modules/kerberos/lib/worker.h
+node_modules/mongodb/node_modules/kerberos/package.json
+node_modules/mongodb/node_modules/kerberos/test/kerberos_tests.js
+node_modules/mongodb/node_modules/kerberos/test/kerberos_win32_test.js
+node_modules/mongodb/node_modules/kerberos/test/win32/security_buffer_descriptor_tests.js
+node_modules/mongodb/node_modules/kerberos/test/win32/security_buffer_tests.js
+node_modules/mongodb/node_modules/kerberos/test/win32/security_credentials_tests.js
+node_modules/mongodb/package.json
+node_modules/mongodb/t.js

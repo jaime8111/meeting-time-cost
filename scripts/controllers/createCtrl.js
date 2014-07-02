@@ -48,7 +48,12 @@ angular.module('meetcost')
 
         $scope.insertKey = function (key) {
             if ( key != 'del' ) {
-                $scope.calculatorVal = parseInt($scope.calculatorVal + '' + key);
+                if ( parseInt($scope.calculatorVal) ) {
+                    $scope.calculatorVal = parseInt($scope.calculatorVal + '' + key);
+                } else {
+                    $scope.calculatorVal = parseInt(key);
+                }
+
             } else {
                 var str = $scope.calculatorVal+"";
                 $scope.calculatorVal = parseInt(str.substring(0, str.length -1));

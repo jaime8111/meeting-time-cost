@@ -800,14 +800,23 @@ html, body {
         }
 
     .circlePanel.smallCircle {
-        font-size: 4.2px;
+        /*font-size: 4.2px;
         font-size: 1.1vw;
-        top: 50em;
+        top: 50em;*/
+        top: 27em;
         right: 2.5em;
-        /*border-width: 0.6em;*/
+
+
+        font-size: 8px; /* android don't let font sizes less than 8 px */
+        font-size: 2.1vw;
+        width: 10em;
+        height: 10em;
     }
         .smallCircle .mainData {
             top: 2.2em;
+        }
+        .circlePanel.smallCircle p {
+            font-size: 1em;
         }
         .circlePanel.smallCircle p + p {
             top: 4.7em;

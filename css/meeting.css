@@ -390,22 +390,22 @@ html, body {
 
 
         .bt_ball.play {
-            background-color: rgba(153,204,0,.2);
+            background-color: rgba(153,204,0,.6);
         }
         .bt_ball.pause {
-            background-color: rgba(255,136,0,.2);
+            background-color: rgba(255,136,0,.6);
         }
         .bt_ball.stop {
-            background-color: rgba(255,68,68,.2);
+            background-color: rgba(255,68,68,.6);
         }
         .bt_ball.play em {
-            background-position: -229px -139px;
+            background-position: -22.3em -13.6em;
         }
         .bt_ball.pause em {
-            background-position: -118px -139px;
+            background-position: -11.5em -13.6em;
         }
         .bt_ball.stop em {
-            background-position: -174px -138px;
+            background-position: -17.2em -13.5em;
         }
 
     .bt_ball {
@@ -413,15 +413,18 @@ html, body {
         text-indent: -9000px;
         border:solid 2px #fff;
         padding: 0;
-        width: 2em;
-        height: 2em;
-        font-size: 33px;
+
+        font-size: 16px;
+        font-size: 2.1vw;
         padding: 15px;
+        padding: 1.5em;
     }
         .bt_ball em {
             display: block;
-            width: 30px;
-            height: 30px;
+
+            width: 4em;
+            height: 4em;
+            background-size: 27em;
         }
     #circleButtonsWrap {
         position: absolute;
@@ -431,27 +434,18 @@ html, body {
     }
         #circleButtonsWrap .bt_ball {
             position: absolute;
-            left: 73%;
+            right: 6.6em;
             top: 0em;
         }
             #circleButtonsWrap .bt_ball:nth-child(2n) {
-                top: 2.1em;
-                left: 81%;
+                top: 8.1em;
+                right: 2.5em;
             }
-    @media (max-width: 479px) {
-        .bt_ball {
-            font-size: 25px;
-            padding: 8px;
-        }
 
-    }
-    @media (max-width: 379px) {
-        #circleButtonsWrap .bt_ball {
-            left: 63%;
+    @media (min-width: 768px) {
+        .bt_ball {
+            font-size: 12px;
         }
-            #circleButtonsWrap .bt_ball:nth-child(2n) {
-                left: 70%;
-            }
     }
 
     .bt.disabled, .bt.disabled:hover {
@@ -729,7 +723,7 @@ html, body {
 #circlesWrap {
     position: absolute;
     width: 100%;
-    padding-top: 115%;
+    top: 12vw;
 }
 .circlePanel {
     border: solid 2px #fff;
@@ -741,7 +735,7 @@ html, body {
     font-size: 3.3vw;
     position: absolute;
     top: 0;
-    right: 5.8em;
+    right: 7em;
 }
     .circlePanel.extratime {
         border-width: 0.2em;
@@ -782,17 +776,19 @@ html, body {
             font-size: 1em;
         }
 
-
+    .circlePanel.mediumCircle, .circlePanel.smallCircle {
+        font-size: 8px; /* android don't let font sizes less than 8 px */
+        font-size: 2.1vw;
+    }
     .circlePanel.mediumCircle {
-        font-size: 6.1px;
-        font-size: 1.6vw;
-        top: 45em;
-        right: 12.6em;
-        margin-bottom: -14em;
-        /*border-width: 0.4em;*/
+        top: 34.4em;
+        right: 8.8em;
     }
         .mediumCircle .mainData {
             top: 1.6em;
+        }
+        .circlePanel.mediumCircle p {
+            font-size: 2.2em;
         }
         .mediumCircle p strong {
             font-size: 2.2em;
@@ -800,23 +796,16 @@ html, body {
         }
 
     .circlePanel.smallCircle {
-        /*font-size: 4.2px;
-        font-size: 1.1vw;
-        top: 50em;*/
-        top: 27em;
-        right: 2.5em;
-
-
-        font-size: 8px; /* android don't let font sizes less than 8 px */
-        font-size: 2.1vw;
-        width: 10em;
-        height: 10em;
+        top: 25.4em;
+        right: 1.8em;
+        width: 12em;
+        height: 12em;
     }
         .smallCircle .mainData {
             top: 2.2em;
         }
         .circlePanel.smallCircle p {
-            font-size: 1em;
+            font-size: 1.2em;
         }
         .circlePanel.smallCircle p + p {
             top: 4.7em;
@@ -881,15 +870,12 @@ html, body {
 
     @media (min-width:768px) {
         .circlePanel { font-size: 21px; }
-            .circlePanel.smallCircle { font-size: 7px; }
-            .circlePanel.mediumCircle { font-size: 10.2px; }
+            .circlePanel.smallCircle, .circlePanel.mediumCircle { font-size: 13.6px; }
 
-        #circlesWrap {
-            padding-top: 700px;
-        }
+
     }
 
-    @media (min-width:960px) {
+    /*@media (min-width:960px) {
         .circlePanel { font-size: 25.5px; }
             .circlePanel.smallCircle { font-size: 8.5px; }
             .circlePanel.mediumCircle { font-size: 12.4px; }
@@ -897,34 +883,14 @@ html, body {
         #circlesWrap {
             padding-top: 860px;
         }
-    }
+    }*/
 
 
 
-    @media (max-width: 379px) {
-        #circlesWrap {
-            padding-top: 120%;
-        }
+    @media (max-width: 279px) {
 
-        .circlePanel {
-            font-size: 8px;
-            font-size: 2.9vw;
-            right: 11em;
-        }
-            .circlePanel.smallCircle {
-                font-size: 3.6px;
-                font-size: 1.3vw;
-                left: auto;
-                top: 35em;
-            }
 
-            .circlePanel.mediumCircle {
-                font-size: 5px;
-                font-size: 1.7vw;
-                left: auto;
-                top: 37em;
-                right: 15em;
-            }
+
     }
 
 

@@ -10,6 +10,9 @@ angular.module('meetcost')
             'title': 'Create a new meeting'
         };
 
+        // hide fixed bar by default
+        $rootScope.toggleBarVisibility = false;
+
         var d = new Date();
 
         $scope.meetData = {};
@@ -133,7 +136,6 @@ angular.module('meetcost')
             $scope.nextStep(3);
             $scope.meetData.status = 1;
             $rootScope.loading = true; // set preloading icon status
-
 
             // add new meeting to existing lists of meetings
             if (localStorage.meetings && localStorage.meetings != "undefined") {

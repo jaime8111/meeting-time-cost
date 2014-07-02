@@ -3,6 +3,7 @@
 angular.module('meetcost')
     .controller('MainCtrl', function ($scope, $cookies, $rootScope) {
 
+
         // set page info
         $rootScope.pageInfo = {
             'id': 'indexPage',
@@ -11,7 +12,7 @@ angular.module('meetcost')
         };
 
         // hide fixed bar by default
-        $scope.toggleBarVisibility = false;
+        $rootScope.toggleBarVisibility = false;
 
         // check localstorage support
         if(typeof(Storage)=="undefined") {
@@ -21,10 +22,10 @@ angular.module('meetcost')
         setUserID();
 
         $scope.toggleBar = function () {
-            if ( $scope.toggleBarVisibility ) {
-                $scope.toggleBarVisibility = false;
+            if ( $rootScope.toggleBarVisibility ) {
+                $rootScope.toggleBarVisibility = false;
             } else {
-                $scope.toggleBarVisibility = true;
+                $rootScope.toggleBarVisibility = true;
             }
         }
     });

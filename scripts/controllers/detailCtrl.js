@@ -12,6 +12,9 @@ angular.module('meetcost')
             'title': 'Meeting time & cost'
         };
 
+        // hide fixed bar by default
+        $rootScope.toggleBarVisibility = false;
+
         // start of TIMER
         var timer;
 
@@ -91,17 +94,19 @@ angular.module('meetcost')
             $scope.loaded = true;
         }
 
+        $rootScope.loading = true; // set preloading icon status
         // init load with data saved on localstorage
         if (localStorage.meetings && localStorage.meetings != "undefined") {
             var storagedMeetings = JSON.parse(localStorage.meetings);
             for ( var i in storagedMeetings ) {
                 if ( storagedMeetings[i].id == $routeParams.id && storagedMeetings[i].owner === localStorage.owner ) {
                     $scope.drawDetailMeeting(storagedMeetings[i]);
+                    $rootScope.loading = false; // set preloading icon status
                 }
             }
         }
 
-        $rootScope.loading = true; // set preloading icon status
+        /*
         $http({
                 method: 'GET',
                 url: apiURL + 'api/get/'+$routeParams.owner+'/'+$routeParams.id,
@@ -121,6 +126,7 @@ angular.module('meetcost')
               // or server returns response with an error status.
               $scope.online = false;
         });
+        */
 
     }).filter('secondsToClock', function () {
         function numberFixedLen(n,len) {

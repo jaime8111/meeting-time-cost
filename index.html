@@ -48,9 +48,9 @@
 <body id="{{ pageInfo.id }}" class="{{ pageInfo.class }}" ng-controller='MainCtrl'>
     <div id="app" class="app">
 
-        <div id="fixedBar" ng-click="toggleBar()" ng-class="{opened: toggleBarVisibility}">
+        <div id="fixedBar" ng-class="{opened: toggleBarVisibility}">
             <div class="content">
-                <a id="toggleFixedBar" title="Toggle navigation bar" class="sp-before sp-after bg_blue hide-on-desktops hide-on-tablets">toggle</a>
+                <a id="toggleFixedBar" ng-click="toggleBar()" title="Toggle navigation bar" class="sp-before sp-after bg_blue hide-on-desktops hide-on-tablets">toggle</a>
 
                 <div id="mainMenuLogo">
                     <a ng-href="#index" class="logo"></a>
@@ -90,15 +90,16 @@
 
 <script type="text/javascript" src="scripts/route.js"></script>
     <script src="scripts/controllers/mainCtrl.js"></script>
+    <script src="scripts/controllers/introCtrl.js"></script>
     <script src="scripts/controllers/aboutCtrl.js"></script>
     <script src="scripts/controllers/createCtrl.js"></script>
     <script src="scripts/controllers/listCtrl.js"></script>
     <script src="scripts/controllers/detailCtrl.js"></script>
-<script type="text/javascript" src="scripts/phonegap.js"></script>
+<!--script type="text/javascript" src="scripts/phonegap.js"></script-->
 
-<script type="text/javascript" src="scripts/vendor/zepto.min.js"></script>
+<!--script type="text/javascript" src="scripts/vendor/zepto.min.js"></script-->
 <!--script type="text/javascript" src="scripts/paragridma/paragridma.circleTimer.js"></script-->
 <script type="text/javascript" src="scripts/meeting.js"></script>
-<script type="text/javascript">app.initialize();</script>
+<!--script type="text/javascript">app.initialize();</script-->
 </body>
 </html>

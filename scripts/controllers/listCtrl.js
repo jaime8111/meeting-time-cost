@@ -10,7 +10,11 @@ angular.module('meetcost')
             'title': 'Saved meetings'
         };
 
+        // hide fixed bar by default
+        $rootScope.toggleBarVisibility = false;
+
         $scope.setMeetingsData = function(meetings) {
+
             for ( var i in meetings ) {
                 var ratePeriods = JSON.parse(meetServices.getRatePeriods()),
                     costRate = meetServices.getCostRate(ratePeriods, meetings[i].ratePeriod);
@@ -19,11 +23,11 @@ angular.module('meetcost')
                 meetings[i].selected = false; // prevent an element to be init selected
             }
             $scope.meetings = meetings; // saved meeting on scope
-            meetServices.updateMeetingsLocalStorage(meetings); // save meetings on localstorage
+            //meetServices.updateMeetingsLocalStorage(meetings); // save meetings on localstorage
         }
 
         // init load with data saved on localstorage
-        if (localStorage.meetings && localStorage.meetings != 'undefined') {
+        if (localStorage.meetings && localStorage.meetings != 'undefined' && JSON.parse(localStorage.meetings).length) {
             $scope.setMeetingsData(JSON.parse(localStorage.meetings));
         } else {
             $scope.emptyList = true;

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('meetcost')
-    .controller('IntroCtrl', function ($rootScope) {
+    .controller('AboutCtrl', function ($rootScope) {
 
         $rootScope.pageInfo = {
             'id': 'aboutPage',

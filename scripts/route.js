@@ -15,10 +15,12 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/intro.html'
+        templateUrl: 'views/intro.html',
+        controller: 'IntroCtrl'
       })
       .when('/index', {
-        templateUrl: 'views/intro.html'
+        templateUrl: 'views/intro.html',
+        controller: 'IntroCtrl'
       })
       .when('/create', {
         templateUrl: 'views/create.html',

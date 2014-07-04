@@ -134,6 +134,13 @@
         font-size: 18px; font-size: 1.8rem;
     }
 
+    a {
+        color:#9c0;
+    }
+        a:hover {
+            color: #690;
+        }
+
     .highlight { color:#33B2E5; }
     .warningLight { color:#f44; }
 
@@ -330,7 +337,7 @@ html, body {
 
 
     .marginBottom {
-        margin-bottom: 2em;
+        margin-bottom: 1.5em;
     }
 
 
@@ -369,7 +376,7 @@ html, body {
 
     .bt {
         font-size: 25px; font-size: 2.5rem;
-        padding: .6em .5em;
+        padding: .5em;
         border-radius: 3px;
         margin-bottom: 0.5em;
         font-weight: bold;
@@ -512,7 +519,7 @@ html, body {
             background: url('../img/app-bigLogo.png') no-repeat 0 0;
             background-size: 100%;
             padding-bottom: 38%;
-            margin: 10px 0 20px 0;
+            margin: 0 0 1.2em 0;
         }
         /*#landingTitle {
             padding-left: 80px;
@@ -620,9 +627,9 @@ html, body {
 
                 background-color: rgba(51,178,229,0.8);
 
-                -webkit-transition-duration: 1s;
-                    -ms-transition-duration: 1s;
-                        transition-duration: 1s;
+                -webkit-transition-duration: 0.5s;
+                    -ms-transition-duration: 0.5s;
+                        transition-duration: 0.5s;
 
                 -webkit-transform: translate(100%,0);
                     -ms-transform: translate(100%,0);
@@ -634,9 +641,7 @@ html, body {
                         -ms-transform: translate(0,0);
                         transform: translate(0,0);
 
-                    -webkit-transition-duration: 0.5s;
-                        -ms-transition-duration: 0.5s;
-                            transition-duration: 0.5s;
+
                 }
                 .itemListActions a {
                     display: table-cell;
@@ -729,19 +734,25 @@ html, body {
     border: solid 2px #fff;
     border-radius: 50%;
     background-color: rgba(0,0,0,0.25);
-    width: 21.8em;
-    height: 21.8em;
+    width: 21.4em;
+    height: 21.4em;
     font-size: 12.5px;
     font-size: 3.3vw;
     position: absolute;
     top: 0;
     right: 7em;
+    box-sizing: content-box;
+        -moz-box-sizing: content-box;
 }
+    .timer.circlePanel {
+        border-width: .5em;
+        width: 21.1em;
+        height: 21.1em;
+    }
     .circlePanel.extratime {
-        border-width: 0.2em;
+
         border-color: #9C0;
-        width: 21.8em;
-        height: 21.8em;
+
     }
     .circlePanel p {
         position: absolute;
@@ -904,23 +915,23 @@ html, body {
 
     .timer > .slice {
         position:absolute;
-        width:22em;
-        height:22em;
-        clip:rect(0,22em,22em,11em);
+        width:22.1em;
+        height:22.1em;
+        clip:rect(0,23em,23em,11em);
         padding: 0;
-        margin:-4px;
+        margin:-.5em;
     }
         .timer.extratime > .slice {
-            margin:-0.2em;
+
         }
     .timer > .slice.gt50 {
         clip:rect(auto, auto, auto, auto);
     }
     .timer > .slice > .pie {
-        border: 6px solid #9C0;
+        border: .5em solid #9C0;
         position:absolute;
-        width:22em; /* 1 - (2 * border width) */
-        height:22em; /* 1 - (2 * border width) */
+        width:22.1em; /* 1 - (2 * border width) */
+        height:22.1em; /* 1 - (2 * border width) */
         clip:rect(0,11em,22em,0em);
         -moz-border-radius:11em;
         -webkit-border-radius:11em;
@@ -967,7 +978,7 @@ html, body {
     .calculator label {
         display: block;
         text-align: center;
-        margin-bottom: 1em;
+        margin-bottom: .8em;
     }
     .calculator input {
         display: block;
@@ -978,8 +989,8 @@ html, body {
         color: #fff;
         font-weight: bold;
         text-align: right;
-        height: 50px;
-        line-height: 44px;
+        height: 40px;
+        line-height: 40px;
 
     }
     .calculator ul {
@@ -997,7 +1008,7 @@ html, body {
             display: block;
             margin:3px;
             font-size: 2.9rem;
-            padding: .4em .2em;
+            padding: .3em .2em;
         }
 
         .calculator .removeChar {
@@ -1021,7 +1032,7 @@ html, body {
         border-radius: 0;
         font-size: 17px;
         font-size: 1.7rem;
-        line-height: 2.3em;
+        line-height: 1.9em;
     }
         .periodSelector .bt:first-child { border-radius: 3px 0 0 3px; }
         .periodSelector .bt:last-child { border-radius: 0 3px 3px 0; }
@@ -1030,45 +1041,56 @@ html, body {
         }
 
 
-.calculator.moving {
-    animation:moveCalculator .5s;
-    -webkit-animation:moveCalculator .5s;
+#calculatorPage.leaving {
+    animation:leaveCalculator .3s;
+    -webkit-animation:leaveCalculator .3s;
 }
-.calculator.moving.reverse {
+#calculatorPage.leaving.reverse, #calculatorPage.entering.reverse {
     animation-direction: reverse;
     -webkit-animation-direction: reverse
 }
 
-@keyframes moveCalculator{
+#calculatorPage.entering {
+    animation:enterCalculator .3s;
+    -webkit-animation:enterCalculator .3s;
+}
+
+
+@keyframes leaveCalculator{
   0% {
     transform: translate(0,0);
     opacity: 1;
   }
-  50%{
-    transform: translate(-120%,0);
+  100%{
+    transform: translate(-80%,0);
     opacity: 0;
   }
-  51%{
-    transform: translate(120%,0);
-    opacity: 0;
+}
+@-webkit-keyframes leaveCalculator {
+    0% {
+      -webkit-transform: translate(0,0);
+      opacity: 1;
+    }
+    100%{
+      -webkit-transform: translate(-80%,0);
+      opacity: 0;
+    }
+}
+
+@keyframes enterCalculator{
+  0% {
+    transform: translate(100%,0);
+    opacity: 0.6;
   }
   100%{
     transform: translate(0,0);
     opacity: 1;
   }
 }
-@-webkit-keyframes moveCalculator {
+@-webkit-keyframes enterCalculator {
     0% {
-      -webkit-transform: translate(0,0);
-      opacity: 1;
-    }
-    50%{
-      -webkit-transform: translate(-120%,0);
-      opacity: 0;
-    }
-    51%{
-      -webkit-transform: translate(120%,0);
-      opacity: 0;
+      -webkit-transform: translate(100%,0);
+      opacity: 0.6;
     }
     100%{
       -webkit-transform: translate(0,0);

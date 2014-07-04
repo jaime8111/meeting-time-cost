@@ -1,9 +1,9 @@
-<div id="landing" class="page">
+<div id="calculatorPage" class="page" ng-class="{leaving: calculator.isLeaving, entering: calculator.isEntering, reverse: calculator.isMovingReverse}">
 
     <h1 class="title h2 ac">{{ calculator.title }}</h1>
     <div class="errorInfoPanel" ng-if="calculator.error != ''" ng-bind-html="calculator.error">
     </div>
-    <div class="calculator" ng-class="{moving: calculator.isMoving, reverse: calculator.isMovingReverse}">
+    <div class="calculator">
         <label ng-bind-html="calculator.description"></label>
         <input ng-model="calculatorVal" type="tel" ng-change="checkCalulatorValue()">
         <ul class="clearfix">

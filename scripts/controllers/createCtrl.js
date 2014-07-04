@@ -69,36 +69,47 @@ angular.module('meetcost')
             $scope.meetData.ratePeriod = period;
         }
 
+        $scope.movingTime = 300;
+
         $scope.nextStep = function (step) {
+
             if ( $scope.calculatorVal > 0 ) {
 
-                $scope.calculator.isMoving = true;
+                $scope.calculator.isLeaving = true;
+                $scope.calculator.isEntering = false;
                 $scope.calculator.isMovingReverse = false;
                 setTimeout(function(){
+                    $scope.calculator.error = '';
+                    if ( step == 1 ) {
+                        // attenders
+                        $scope.meetData.attenders = $scope.calculatorVal;
+                    } else if ( step == 2) {
+                        // average rate
+                        $scope.meetData.averageRate = $scope.calculatorVal;
+                    } else if ( step == 3) {
+                        // estimated time
+                        $scope.meetData.estimatedSeconds = $scope.calculatorVal * 60;
+                    }
+
+                    $scope.calculatorVal = 0;
+
+                    if ( step < 3 ) {
+                        $scope.calculator.title = $scope.calculator.stepsInfo[step].title;
+                        $scope.calculator.description = $scope.calculator.stepsInfo[step].description;
+                        $scope.calculator.currentStep = step + 1;
+                    }
+
                     $scope.$apply(function () {
-                        $scope.calculator.isMoving = false;
+                        $scope.calculator.isLeaving = false;
+                        $scope.calculator.isEntering = true;
                     });
-                }, 500);
+                }, $scope.movingTime);
 
-                $scope.calculator.error = '';
-                if ( step == 1 ) {
-                    // attenders
-                    $scope.meetData.attenders = $scope.calculatorVal;
-                } else if ( step == 2) {
-                    // average rate
-                    $scope.meetData.averageRate = $scope.calculatorVal;
-                } else if ( step == 3) {
-                    // estimated time
-                    $scope.meetData.estimatedSeconds = $scope.calculatorVal * 60;
-                }
-
-                $scope.calculatorVal = 0;
-
-                if ( step < 3 ) {
-                    $scope.calculator.title = $scope.calculator.stepsInfo[step].title;
-                    $scope.calculator.description = $scope.calculator.stepsInfo[step].description;
-                    $scope.calculator.currentStep = step + 1;
-                }
+                setTimeout(function(){
+                    $scope.$apply(function () {
+                        $scope.calculator.isEntering = false;
+                    });
+                }, $scope.movingTime * 2);
             } else {
                 $scope.calculator.error = $scope.calculator.stepsInfo[step-1].emptyError;
             }
@@ -108,32 +119,43 @@ angular.module('meetcost')
 
         $scope.prevStep = function (step) {
 
-            $scope.calculator.isMoving = true;
+            $scope.calculator.isEntering = true;
+            $scope.calculator.isLeaving = false;
             $scope.calculator.isMovingReverse = true;
+
+            setTimeout(function(){
+
+                if ( step == 1 ) {
+                    // attenders
+                    $scope.calculatorVal = $scope.meetData.attenders;
+                } else if ( step == 2) {
+                    // average rate
+                    $scope.calculatorVal = $scope.meetData.averageRate;
+                } else if ( step == 3) {
+                    // estimated time
+                    $scope.calculatorVal = $scope.meetData.estimatedSeconds / 60;
+                }
+
+                if ( step < 3 ) {
+                    $scope.calculator.title = $scope.calculator.stepsInfo[step-1].title;
+                    $scope.calculator.description = $scope.calculator.stepsInfo[step-1].description;
+                    $scope.calculator.currentStep = step;
+                }
+
+                $scope.$apply(function () {
+                    $scope.calculator.isEntering = false;
+                    $scope.calculator.isLeaving = true;
+                });
+            }, $scope.movingTime);
+
             setTimeout(function(){
                 $scope.$apply(function () {
-                    $scope.calculator.isMoving = false;
+                    $scope.calculator.isEntering = false;
                 });
-            }, 500);
-
-            if ( step == 1 ) {
-                // attenders
-                $scope.calculatorVal = $scope.meetData.attenders;
-            } else if ( step == 2) {
-                // average rate
-                $scope.calculatorVal = $scope.meetData.averageRate;
-            } else if ( step == 3) {
-                // estimated time
-                $scope.calculatorVal = $scope.meetData.estimatedSeconds / 60;
-            }
-
-            if ( step < 3 ) {
-                $scope.calculator.title = $scope.calculator.stepsInfo[step-1].title;
-                $scope.calculator.description = $scope.calculator.stepsInfo[step-1].description;
-                $scope.calculator.currentStep = step;
-            }
+            }, $scope.movingTime * 2 );
 
             $window.scrollTo(0,0);
+
         };
 
         $rootScope.loading = false;

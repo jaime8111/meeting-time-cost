@@ -36,15 +36,7 @@ angular.module('meetcost')
                 timer = setInterval(function () {
                     $scope.timer++;
 
-                    $scope.timerPerc = $scope.timer * 100 / $scope.detailMeeting.estimatedSeconds;
-
-                    if ($scope.timerPerc >= 100) {
-                        $scope.extratime = true;
-                        $scope.timerPerc = $scope.timerPerc % 100;
-                    }
-
-
-                    $scope.timerRotation = 360/100*$scope.timerPerc;
+                    $scope.getTimePerc();
 
                     $scope.$apply(function () {
                         setTimer();
@@ -75,6 +67,17 @@ angular.module('meetcost')
             meetServices.updateMeeting(id, seconds, refresh, $scope);
         }
 
+        $scope.getTimePerc = function () {
+            $scope.timerPerc = $scope.timer * 100 / $scope.detailMeeting.estimatedSeconds;
+
+            if ($scope.timerPerc >= 100) {
+                $scope.extratime = true;
+                $scope.timerPerc = $scope.timerPerc % 100;
+            }
+
+            $scope.timerRotation = 360/100*$scope.timerPerc;
+        }
+
         $scope.drawDetailMeeting = function(meeting) {
             $scope.detailMeeting = meeting;
 
@@ -88,8 +91,8 @@ angular.module('meetcost')
             $scope.estimatedCost = $scope.costPerSecond * $scope.detailMeeting.estimatedSeconds;
             $scope.estimatedCostByHour = $scope.costPerSecond * 60 * 60;
 
-            $scope.timerPerc = $scope.timer * 100 / $scope.detailMeeting.estimatedSeconds;
-            $scope.timerRotation = 360/100*$scope.timerPerc;
+            $scope.getTimePerc();
+
 
             $scope.loaded = true;
         }

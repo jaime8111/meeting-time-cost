@@ -72,24 +72,24 @@ angular.module('meetcost')
         $scope.movingTime = 300;
 
         $scope.nextStep = function (step) {
-
-            if ( $scope.calculatorVal > 0 ) {
-
+            if ( parseInt($scope.calculatorVal) && $scope.calculatorVal > 0 ) {
                 $scope.calculator.isLeaving = true;
                 $scope.calculator.isEntering = false;
                 $scope.calculator.isMovingReverse = false;
+                $scope.calculator.error = '';
+
+                if ( step == 1 ) {
+                    // attenders
+                    $scope.meetData.attenders = $scope.calculatorVal;
+                } else if ( step == 2) {
+                    // average rate
+                    $scope.meetData.averageRate = $scope.calculatorVal;
+                } else if ( step == 3) {
+                    // estimated time
+                    $scope.meetData.estimatedSeconds = $scope.calculatorVal * 60;
+                }
+
                 setTimeout(function(){
-                    $scope.calculator.error = '';
-                    if ( step == 1 ) {
-                        // attenders
-                        $scope.meetData.attenders = $scope.calculatorVal;
-                    } else if ( step == 2) {
-                        // average rate
-                        $scope.meetData.averageRate = $scope.calculatorVal;
-                    } else if ( step == 3) {
-                        // estimated time
-                        $scope.meetData.estimatedSeconds = $scope.calculatorVal * 60;
-                    }
 
                     $scope.calculatorVal = 0;
 
@@ -161,43 +161,47 @@ angular.module('meetcost')
         $rootScope.loading = false;
         $scope.addMeeting = function () {
             $scope.nextStep(3);
-            $scope.meetData.status = 1;
-            $rootScope.loading = true; // set preloading icon status
 
-            // add new meeting to existing lists of meetings
-            if (localStorage.meetings && localStorage.meetings != "undefined") {
-                // get user meetings from localstorage
-                $scope.meetings = JSON.parse(localStorage.meetings);
+            if ( $scope.calculator.error == '') {
+                console.log("NO HAY ERROR");
+                $scope.meetData.status = 1;
+                $rootScope.loading = true; // set preloading icon status
 
-                // insert new meeting
-                $scope.meetings.push($scope.meetData);
+                // add new meeting to existing lists of meetings
+                if (localStorage.meetings && localStorage.meetings != "undefined") {
+                    // get user meetings from localstorage
+                    $scope.meetings = JSON.parse(localStorage.meetings);
 
-                // update localstorage with new meeting
-                localStorage.meetings = JSON.stringify($scope.meetings);
+                    // insert new meeting
+                    $scope.meetings.push($scope.meetData);
+
+                    // update localstorage with new meeting
+                    localStorage.meetings = JSON.stringify($scope.meetings);
+                }
+
+                /*
+                // save new meeting on MySQL
+                $http.post('api/save', $scope.meetData)
+                    .success(function(data) {
+                        // this callback will be called asynchronously
+                        // when the response is available
+
+                        if( data.error ) {
+                            console.warn('ERROR:',data.error.text);
+                            console.log('TODO: MENSAJE DE ERROR');
+                        } else if ( data.success ) {
+                            // redirect to detail page of new event
+                            //$location.path('/meeting/'+$scope.meetData.owner+'/'+data.success.lastInsertId);
+                        }
+                        $rootScope.loading = false; // set preloading icon status
+                    }).error(function() {
+                      // called asynchronously if an error occurs
+                      // or server returns response with an error status.
+                      $rootScope.loading = false; // set preloading icon status
+                });
+                */
+                $location.path('/meeting/'+$scope.meetData.owner+'/'+$scope.meetData.id);
             }
-
-            /*
-            // save new meeting on MySQL
-            $http.post('api/save', $scope.meetData)
-                .success(function(data) {
-                    // this callback will be called asynchronously
-                    // when the response is available
-
-                    if( data.error ) {
-                        console.warn('ERROR:',data.error.text);
-                        console.log('TODO: MENSAJE DE ERROR');
-                    } else if ( data.success ) {
-                        // redirect to detail page of new event
-                        //$location.path('/meeting/'+$scope.meetData.owner+'/'+data.success.lastInsertId);
-                    }
-                    $rootScope.loading = false; // set preloading icon status
-                }).error(function() {
-                  // called asynchronously if an error occurs
-                  // or server returns response with an error status.
-                  $rootScope.loading = false; // set preloading icon status
-            });
-            */
-            $location.path('/meeting/'+$scope.meetData.owner+'/'+$scope.meetData.id);
 
 
         };

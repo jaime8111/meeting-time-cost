@@ -108,6 +108,10 @@
         html { font-size: 50%; }
     }
 
+    @media (max-width: 319px) {
+        html { font-size: 37%; }
+    }
+
     body {
         font-family: 'opensans', sans-serif;
     }
@@ -724,6 +728,47 @@ html, body {
                                 padding-left: 0; padding-right: 33px; text-align: right;
                             }
 
+                @media (max-width: 379px) {
+                    .itemsList p.sp-before:before {
+                        top:0;
+                    }
+                }
+
+                @media (max-width: 319px) {
+                    .itemListRow {
+                        padding: 1.4rem 1rem 0;
+                    }
+                    .itemsList p.sp-before:before {
+                        top:-5px;
+                        background-size: 200px;
+                    }
+                        .itemsList p.sp-before.money:before {
+                            background-position: -164px 2px;
+                            width: 15px;
+                        }
+                        .itemsList p.sp-before.time:before {
+                            background-position: -143px 2px;
+                            width: 15px;
+                        }
+                        .itemsList p.sp-before.persons:before {
+                            background-position: -86px 2px;
+                            width: 22px;
+                        }
+
+                    .itemsList p.sp-before.money {
+                        padding-left: 15px;
+                    }
+                        .itemsList p.sp-before.time {
+                            padding-left: 18px;
+                        }
+                        .itemsList p.sp-before.persons {
+                            padding-right: 26px;
+                        }
+                        .itemsList p.sp-before.moneyPerPerson {
+                            padding-right: 0;
+                        }
+                }
+
 /* end of pages */
 #circlesWrap {
     position: absolute;
@@ -746,14 +791,15 @@ html, body {
 }
     .timer.circlePanel {
         border-width: .5em;
-        width: 21.1em;
-        height: 21.1em;
+        width: 21em;
+        height: 21em;
     }
+
     .circlePanel.extratime {
-
-        border-color: #9C0;
-
+        /*border-color: #9C0;*/
+        background-color: rgba(180, 35, 35, 0.3);
     }
+
     .circlePanel p {
         position: absolute;
         top: 1.2em;
@@ -928,10 +974,10 @@ html, body {
         clip:rect(auto, auto, auto, auto);
     }
     .timer > .slice > .pie {
-        border: .5em solid #9C0;
+        border: .8em solid #9C0;
         position:absolute;
-        width:22.1em; /* 1 - (2 * border width) */
-        height:22.1em; /* 1 - (2 * border width) */
+        width:22em; /* 1 - (2 * border width) */
+        height:22em; /* 1 - (2 * border width) */
         clip:rect(0,11em,22em,0em);
         -moz-border-radius:11em;
         -webkit-border-radius:11em;
@@ -950,6 +996,8 @@ html, body {
         transform:rotate(180deg) !important;
 
         -webkit-transform: rotate(182.88deg);
+
+
     }
     .timer.fill > .percent {
         display: none;
@@ -1011,15 +1059,23 @@ html, body {
             padding: .3em .2em;
         }
 
-        .calculator .removeChar {
-            text-indent: -9000px;
-        }
+
             .calculator .removeChar:before {
-                background-position: -212px -192px;
-                left: 50%;
-                width: 60px;
-                margin-left: -30px;
-                top: 0.25em;
+                display: none;
+            }
+
+            @media (min-width: 380px) {
+                .calculator .removeChar {
+                    text-indent: -9000px;
+                }
+                .calculator .removeChar:before {
+                    display: block;
+                    background-position: -212px -192px;
+                    left: 50%;
+                    width: 60px;
+                    margin-left: -30px;
+                    top: 0.25em;
+                }
             }
 
 .periodSelector {

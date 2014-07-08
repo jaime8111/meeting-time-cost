@@ -293,7 +293,7 @@ html, body {
 
 /*= LAYOUT */
     .row, #pagesWrap {
-        max-width: 1000px;
+        max-width: 1100px;
         margin-left: 0;
     }
 
@@ -410,13 +410,13 @@ html, body {
             background-color: rgba(255,68,68,.6);
         }
         .bt_ball.play em {
-            background-position: -22.3em -13.6em;
+            background-position: -15.1em -9.2em;
         }
         .bt_ball.pause em {
-            background-position: -11.5em -13.6em;
+            background-position: -7.8em -9.2em;
         }
         .bt_ball.stop em {
-            background-position: -17.2em -13.5em;
+            background-position: -11.5em -9.2em;
         }
 
     .bt_ball {
@@ -424,18 +424,16 @@ html, body {
         text-indent: -9000px;
         border:solid 2px #fff;
         padding: 0;
-
-        font-size: 16px;
-        font-size: 2.1vw;
-        padding: 15px;
-        padding: 1.5em;
+        font-size: 15px;
+        font-size: 4.3vw;
+        padding: .7em;
     }
         .bt_ball em {
             display: block;
 
-            width: 4em;
-            height: 4em;
-            background-size: 27em;
+            width: 2.2em;
+            height: 2.2em;
+            background-size: 18em;
         }
     #circleButtonsWrap {
         position: absolute;
@@ -445,18 +443,29 @@ html, body {
     }
         #circleButtonsWrap .bt_ball {
             position: absolute;
-            right: 6.6em;
+            right: 2.8em;
             top: 0em;
         }
             #circleButtonsWrap .bt_ball:nth-child(2n) {
-                top: 8.1em;
-                right: 2.5em;
+                top: 4.5em;
+                right: 1em;
             }
 
     @media (min-width: 768px) {
         .bt_ball {
-            font-size: 12px;
+            font-size: 3.5vw;
         }
+    }
+    @media (max-width: 320px) {
+        /*.bt_ball {
+            font-size: 8px;
+        }
+        #circleButtonsWrap .bt_ball {
+            right: 3.6em;
+        }
+        #circleButtonsWrap .bt_ball:nth-child(2n) {
+            right: .5em;
+        }*/
     }
 
     .bt.disabled, .bt.disabled:hover {
@@ -947,6 +956,46 @@ html, body {
     @media (max-width: 279px) {
 
 
+
+    }
+
+    @media screen and (orientation:landscape) and (min-width:768px) {
+        #circlesWrap {
+            top:5em;
+        }
+        .circlePanel {
+            font-size: 1.9vw;
+        }
+        .circlePanel.smallCircle, .circlePanel.mediumCircle {
+            font-size: 1.05vw;
+        }
+        .circlePanel.bigCircle {
+            right: auto;
+            left: 1.5em;
+        }
+        .circlePanel.mediumCircle {
+            right: auto;
+            left: 43em;
+            top: 18em;
+        }
+        .circlePanel.smallCircle {
+            right: auto;
+            left: 42.5em;
+            top: 4.5em;
+        }
+
+        #circleButtonsWrap .bt_ball {
+            left: 25.3em;
+            right: auto;
+        }
+            #circleButtonsWrap .bt_ball:nth-child(2n) {
+                left: 28em;
+                right: auto;
+            }
+
+        .bt_ball {
+            font-size: 2.3vw;
+        }
 
     }
 

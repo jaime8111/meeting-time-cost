@@ -1,63 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.vissit.meetcost"
-        versionCode = "30"
-        version   = "1.0.82">
-
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.vissit.meetcost"
+        version="1.0.0"
+        xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Meeting time and cost</name>
-
     <description>
         Do you know how much your next meeting will cost to your company? Is this meeting worth it? This app’ll help you to track time and cost of any meeting.
     </description>
-
-    <author href="http://vissit.com" email="vissitcom@gmail.com">
+    <author email="vissitcom@gmail.com" href="http://vissit.com">
         Vissit Team
     </author>
+    <preference name="permissions" value="none"/>
+    <preference name="orientation" value="portrait" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
 
-    <preference name="permissions"                value="none"/>
+    <content src="index.html" />
 
-    <!-- Customize your app and platform with the preference element. -->
-    <preference name="phonegap-version"           value="cli-5.2.0" />     <!-- all: current version of PhoneGap -->
-    <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
-    <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
-    <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
-    <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
-    <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
-    <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
-    <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
-    <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
-    <preference name="exit-on-suspend"            value="false" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
-    <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
-    <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
-    <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
-    <preference name="android-minSdkVersion"      value="14" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
-    <!-- 9 - android 2.3.3 GINGERBREAD -->
-    <!-- 14 - android 4     ICE_CREAM_SANDWICH -->
-    <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
+     <!-- Define app icon for each platform. -->
+    <icon src="res/icon/1024.png" />
 
-
-    <!-- Plugins can also be added here. -->
-    <!--
-        <gap:plugin name="Example" />
-        A list of available plugins are available at https://build.phonegap.com/docs/plugins
-    -->
-
-    <!-- Define app icon for each platform. -->
-    <icon src="icon.png" />
-    <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
-    <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
-    <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
-    <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
-
-    <!-- Define app splash screen for each platform. -->
-    <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:qualifier="port-ldpi" />
-    <gap:splash src="res/screen/android/screen-mdpi-portrait.png"  gap:platform="android" gap:qualifier="port-mdpi" />
-    <gap:splash src="res/screen/android/screen-hdpi-portrait.png"  gap:platform="android" gap:qualifier="port-hdpi" />
-    <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:qualifier="port-xhdpi" />
-
+    <icon background="res/icon/android/mipmap-mdpi/ic_launcher_adaptive_back.png" density="mdpi" foreground="res/icon/android/mipmap-mdpi/ic_launcher_adaptive_fore.png" />
+    <icon background="res/icon/android/mipmap-hdpi/ic_launcher_adaptive_back.png" density="hdpi" foreground="res/icon/android/mipmap-hdpi/ic_launcher_adaptive_fore.png" />
+    <icon background="res/icon/android/mipmap-xhdpi/ic_launcher_adaptive_back.png" density="xhdpi" foreground="res/icon/android/mipmap-xhdpi/ic_launcher_adaptive_fore.png" />
+    <icon background="res/icon/android/mipmap-xxhdpi/ic_launcher_adaptive_back.png" density="xxhdpi" foreground="res/icon/android/mipmap-xxhdpi/ic_launcher_adaptive_fore.png" />
+    <icon background="res/icon/android/mipmap-xxxhdpi/ic_launcher_adaptive_back.png" density="xxxhdpi" foreground="res/icon/android/mipmap-xxxhdpi/ic_launcher_adaptive_fore.png" />
 
     <!--
         Define access to external domains.
@@ -68,10 +43,7 @@
         Otherwise, you can specify specific domains:
     -->
     <access origin="*"/> <!-- allow local pages -->
-    <!--
-        <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
-        <access origin="http://phonegap.com" subdomains="true" />  - same as above, but including subdomains, such as http://build.phonegap.com/
-        <access origin="http://phonegap.com" browserOnly="true" /> - only allows http://phonegap.com to be opened by the child browser.
-    -->
 
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
 </widget>

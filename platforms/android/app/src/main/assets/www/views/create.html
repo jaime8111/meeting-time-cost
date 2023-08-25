@@ -1,0 +1,55 @@
+<div id="calculatorPage" class="page" ng-class="{leaving: calculator.isLeaving, entering: calculator.isEntering, reverse: calculator.isMovingReverse}">
+
+    <h1 class="title h2 ac">{{ calculator.title }}</h1>
+    <div class="errorInfoPanel" ng-if="calculator.error != ''" ng-bind-html="calculator.error">
+    </div>
+    <div class="calculator">
+        <label ng-bind-html="calculator.description"></label>
+        <input ng-model="calculatorVal" type="tel" ng-change="checkCalulatorValue()">
+        <ul class="clearfix">
+            <li><a class="bt bg_gray" ng-click="insertKey(1)">1</a></li>
+            <li><a class="bt bg_gray" ng-click="insertKey(2)">2</a></li>
+            <li><a class="bt bg_gray" ng-click="insertKey(3)">3</a></li>
+
+            <li><a class="bt bg_gray" ng-click="insertKey(4)">4</a></li>
+            <li><a class="bt bg_gray" ng-click="insertKey(5)">5</a></li>
+            <li><a class="bt bg_gray" ng-click="insertKey(6)">6</a></li>
+
+            <li><a class="bt bg_gray" ng-click="insertKey(7)">7</a></li>
+            <li><a class="bt bg_gray" ng-click="insertKey(8)">8</a></li>
+            <li><a class="bt bg_gray" ng-click="insertKey(9)">9</a></li>
+
+            <li class="key_indent"><a class="bt bg_gray" ng-click="insertKey(0)">0</a></li>
+            <li><a class="bt bg_gray sp-before removeChar " ng-click="insertKey('del')">del</a></li>
+        </ul>
+        <div ng-if="calculator.currentStep == 2" class="periodSelector">
+            <a ng-click="periodSelector(1)" ng-class="{bg_blue: meetData.ratePeriod==1}" class="bt bg_gray">hourly</a>
+            <a ng-click="periodSelector(2)" ng-class="{bg_blue: meetData.ratePeriod==2}" class="bt bg_gray">monthly</a>
+            <a ng-click="periodSelector(3)" ng-class="{bg_blue: meetData.ratePeriod==3}" class="bt bg_gray">yearly</a>
+        </div>
+        <div class="actions cb">
+            <a ng-if="calculator.currentStep < 3" ng-click="nextStep(calculator.currentStep)" class="bt bg_orange db">next step</a>
+            <a ng-if="calculator.currentStep == 3 && !loading" ng-click="addMeeting()" class="bt bg_green db">start meeting</a>
+            <a ng-if="calculator.currentStep == 3 && loading" class="bt bg_green disabled db">creating...</a>
+            <a ng-if="calculator.currentStep > 1" ng-click="prevStep(calculator.currentStep-1)">&lt; previous step</a>
+        </div>
+
+    </div>
+
+    <form ng-submit="addMeeting()" class="hidden">
+        <input type="text" ng-model="meetData.owner" name="owner" placeholder="owner"/>
+        <input type="text" ng-model="meetData.id" name="id" placeholder="id"/>
+        <input type="text" ng-model="meetData.attenders" name="attenders" placeholder="attenders"/>
+        <select ng-model="meetData.status" name="status" placeholder="status"/>
+            <option value="">Selecciona Status</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <input type="text" ng-model="meetData.averageRate" name="averageRate" placeholder="averageRate"/>
+        <input type="text" ng-model="meetData.ratePeriod" name="ratePeriod" placeholder="ratePeriod"/>
+        <input type="text" ng-model="meetData.estimatedSeconds" name="estimatedSeconds" placeholder="estimatedSeconds"/>
+        <input type="text" ng-model="meetData.meetSeconds" name="meetSeconds" placeholder="meetSeconds"/>
+        <input type="submit" id="submit" placeholder="submit"/>
+    </form>
+</div>
